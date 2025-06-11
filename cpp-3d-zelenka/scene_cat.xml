@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<scene>
+    <light type="6" type_name="direct light">
+        <name>main light</name>
+        <position x="1" y="5" z="15" />
+        <ambient red="0.1" green="0.1" blue="0.1" alpha="1" />
+        <diffuse red="1" green="1" blue="1" alpha="1" />
+        <specular red="1" green="1" blue="1" alpha="1" />
+    </light>
+    <camera type="5" type_name="camera">
+        <name>main camera</name>
+        <eye x="0" y="2" z="7" />
+        <target x="0" y="1" z="0" />
+        <up x="0" y="1" z="0" />
+    </camera>
+    <camera type="4" type_name="orbit camera">
+        <name>main orbit camera</name>
+        <eye x="0" y="0" z="1" />
+        <target x="0" y="0" z="0" />
+        <up x="0" y="1" z="0" />
+    </camera>
+    <models>
+        <model type="3" type_name="simple model">
+            <name>model plane</name>
+            <path>Data/SimpleModel</path>
+            <file>plane.agso</file>
+            <position x="0" y="-2" z="0" />
+            <rotation x="-90" y="0" z="0" />
+            <scale coef="10" />
+            <transparency yes="0" />
+        </model>
+        <model type="3" type_name="simple model">
+            <name>model torus</name>
+            <path>Data/SimpleModel</path>
+            <file>torus.agso</file>
+            <position x="4" y="0.9" z="-2" />
+            <rotation x="0" y="0" z="65" />
+            <scale coef="1" />
+            <transparency yes="0" />
+        </model>
+        <model type="2" type_name="assimp model">
+            <name>model cat</name>
+            <path>Data/Cats</path>
+            <file>barsik_1.3ds</file>
+            <position x="0" y="1" z="0" />
+            <rotation x="0" y="0" z="0" />
+            <scale coef="1" />
+            <transparency yes="0" />
+        </model>
+    </models>
+</scene>
