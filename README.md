@@ -5,19 +5,20 @@
 ### Описание:
 
 Простой 3D движок на С++17 для Win, импорт 3D моделей (3ds, dae) через XML сцену. 
-Загрузить сцену "File->Open...", сохранить сцену "File->Save As...".
-Выход "File->Exit", Exp.
+- Загрузить сцену "File->Open"
+- Сохранить сцену "File->Save As"
+- Выход "File->Exit", Exp.
 В GUI отображается перечень моделей, их позиция в сцене, а так же позиция камеры.
 Клавишами W/S перемещается камера по вертикали, A/D по горизонтали, Q/Z изменение дистанции до targer камеры.
 
 ### Технологии:
 
-- :point_right: СMake
-- :point_right: OpenGL c GLSL 3.3
-- :point_right: Qt5 для GUI
-- :point_right: Assimp
-- :point_right: TinyXML
-- :point_right: Il
+- СMake
+- OpenGL c GLSL 3.3
+- Qt5 для GUI
+- Assimp
+- TinyXML
+- IL
 
 ### Запуск проекта:
 
