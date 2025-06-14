@@ -12,26 +12,31 @@ set(CMAKE_BINARY_DIR "build")
 
 project( 3D-zelenka )
 
-set(INC     "src" "src/GL_ext" "src/GUI" "src/math")
+set(INC     "src" 
+			"src/GL_ext" "src/GUI" 		"src/math" 
+			"src/base"   "src/buffers" 	"src/camera" 
+			"src/light"  "src/model"  	"src/shader")
 
-set(SOURCE
-            src/main.cpp                            src/scene3d.cpp         
-            src/gl_extentions.cpp                   src/object_type.cpp
+set(SOURCE_MODEL
+            src/model/base_model.cpp 			src/model/mesh.cpp
+            src/model/material.cpp 				src/model/texture.cpp
+            
+            src/model/model_assimp.cpp 			src/model/model_simple.cpp)
 
-            src/frame_buffer.cpp                    src/frame_buffer_image.cpp
-            
-            src/base_camera.cpp                     src/camera.cpp
-            src/orbit_camera.cpp
-            
-            src/light.cpp                           src/shader.cpp
-            
-            src/base_model.cpp                      src/mesh.cpp
-            src/material.cpp                        src/texture.cpp
-            
-            src/model_assimp.cpp                    src/model_simple.cpp)
+set(SOURCE_BASE
+            src/base/gl_extentions.cpp			src/base/object_type.cpp)
+			
+set(SOURCE_BUFFERS
+            src/buffers/frame_buffer.cpp		src/buffers/frame_buffer_image.cpp)
+			
+set(SOURCE_CAMERA
+            src/camera/base_camera.cpp			src/camera/camera.cpp
+			src/camera/orbit_camera.cpp)
+			
+set(SOURCE_LIGHT 	src/light/light.cpp)
+set(SOURCE_SHADER 	src/shader/shader.cpp)
 
-set(SOURCE_GUI
-            src/GUI/Qt_scene3d.cpp                  src/GUI/main_window.cpp)
+set(SOURCE_GUI 		src/GUI/Qt_scene3d.cpp 		src/GUI/main_window.cpp)
 
             
 # Указываем нужные библиотеки
@@ -56,10 +61,12 @@ message( ${TINYXML_LIB} )
 find_library( DEVIL_LIB     NAMES "il"              PATHS ${CMAKE_LIBRARY_PATH} )
 message( ${DEVIL_LIB} )
 
-add_executable(${PROJECT_NAME} ${SOURCE} ${SOURCE_GUI} )
+
+add_executable(${PROJECT_NAME} src/main.cpp src/scene3d.cpp ${SOURCE_MODEL} 
+	${SOURCE_GUI} ${SOURCE_BASE} ${SOURCE_BUFFERS} ${SOURCE_CAMERA} ${SOURCE_LIGHT} 
+	${SOURCE_SHADER})
 
 
-# Пути к *.h файлам
 target_include_directories(${PROJECT_NAME} PRIVATE ${INC} ${CMAKE_INCLUDE_PATH})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::OpenGL ${OPENGL_LIBRARIES} 
