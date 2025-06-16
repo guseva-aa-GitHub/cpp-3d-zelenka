@@ -1,10 +1,8 @@
-#ifndef _ORBIT_CAMERA_H
-#define _ORBIT_CAMERA_H
+#pragma once
 
 #include "base_camera.h"
 
-namespace ag
-{
+namespace ag {
 
 class OrbCamera: public BaseCamera {
 public:
@@ -25,4 +23,3 @@ private:
 
 } //end namespace ag
 
-#endif // _ORBIT_CAMERA_H

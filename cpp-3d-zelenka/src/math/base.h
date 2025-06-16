@@ -1,5 +1,4 @@
-#ifndef BASE_H_INCLUDED
-#define BASE_H_INCLUDED
+#pragma once
 
 namespace ag {
 namespace math {
@@ -36,8 +35,6 @@ inline Treal maximum(const Treal& a, const Treal& b) {
     return a < b ? b : a;
 }
 
+}
+}
 
-}//namespace math
-}//namespace ag
-
-#endif // BASE_H_INCLUDED

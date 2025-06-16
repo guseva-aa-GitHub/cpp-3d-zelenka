@@ -1,6 +1,4 @@
-#include <QtGui>
 #include "Qt_scene3d.h"
-#include "object_type.h"
 
 QtScene3D::QtScene3D(QWidget *parent) 
 : QGLWidget(parent) { }

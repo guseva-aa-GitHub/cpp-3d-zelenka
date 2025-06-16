@@ -1,8 +1,7 @@
 // file matrix4x4.inl
 // Inline implementation of the 4x4 matrix operators
 
-#ifndef MATRIX4x4_INL_INC
-#define MATRIX4x4_INL_INC
+#pragma once
 
 #include "matrix4x4.h"
 #include "matrix3x3.h"
@@ -12,13 +11,11 @@
 #include <math.h>
 #include <assert.h>
 
-namespace ag
-{
+namespace ag {
 
 // ---------------------------------------------------------------------
 template <typename Treal>
-mat4t<Treal>::mat4t()
-{
+mat4t<Treal>::mat4t() {
 	buf[0]=1.0f; buf[1]=0.0f; buf[2]=0.0f; buf[3]=0.0f;
 	buf[4]=0.0f; buf[5]=1.0f; buf[6]=0.0f; buf[7]=0.0f;
 	buf[8]=0.0f; buf[9]=0.0f; buf[10]=1.0f; buf[11]=0.0f;
@@ -42,8 +39,7 @@ mat4t<Treal>::mat4t(
 
 // ---------------------------------------------------------------------
 template <typename Treal>
-mat4t<Treal>::mat4t(const mat4t<Treal>& m)
-{
+mat4t<Treal>::mat4t(const mat4t<Treal>& m) {
 	buf[0] = m.buf[0]; buf[1] = m.buf[1]; buf[2] = m.buf[2]; buf[3] = m.buf[3];
 	buf[4] = m.buf[4]; buf[5] = m.buf[5]; buf[6] = m.buf[6]; buf[7] = m.buf[7];
 	buf[8] = m.buf[8]; buf[9] = m.buf[9]; buf[10] = m.buf[10]; buf[11] = m.buf[11];
@@ -52,8 +48,7 @@ mat4t<Treal>::mat4t(const mat4t<Treal>& m)
 
 // ---------------------------------------------------------------------
 template <typename Treal>
-mat4t<Treal>::mat4t(const mat3t<Treal>& m)
-{
+mat4t<Treal>::mat4t(const mat3t<Treal>& m) {
 	buf[0] = m.buf[0]; buf[1] = m.buf[1]; buf[2] = m.buf[2]; buf[3] = static_cast<Treal>(0.0f);
 	buf[4] = m.buf[3]; buf[5] = m.buf[4]; buf[6] = m.buf[5]; buf[7] = static_cast<Treal>(0.0f);
 	buf[8] = m.buf[6]; buf[9] = m.buf[7]; buf[10] = m.buf[8]; buf[11] = static_cast<Treal>(0.0f);
@@ -62,8 +57,7 @@ mat4t<Treal>::mat4t(const mat3t<Treal>& m)
 }
 
 template <typename Treal>
-mat4t<Treal>& mat4t<Treal>::operator=(const mat4t<Treal>& m)
-{
+mat4t<Treal>& mat4t<Treal>::operator=(const mat4t<Treal>& m) {
 	buf[0] = m.buf[0]; buf[1] = m.buf[1]; buf[2] = m.buf[2]; buf[3] = m.buf[3];
 	buf[4] = m.buf[4]; buf[5] = m.buf[5]; buf[6] = m.buf[6]; buf[7] = m.buf[7];
 	buf[8] = m.buf[8]; buf[9] = m.buf[9]; buf[10] = m.buf[10]; buf[11] = m.buf[11];
@@ -73,8 +67,7 @@ mat4t<Treal>& mat4t<Treal>::operator=(const mat4t<Treal>& m)
 
 // ---------------------------------------------------------------------
 template <typename Treal>
-mat4t<Treal>& mat4t<Treal>::operator *= (const mat4t<Treal>& m)
-{
+mat4t<Treal>& mat4t<Treal>::operator *= (const mat4t<Treal>& m) {
 	*this = mat4t<Treal>(
         m.buf[0] * buf[0] + m.buf[4] * buf[1] + m.buf[8] * buf[2] + m.buf[12] * buf[3],
 		m.buf[1] * buf[0] + m.buf[5] * buf[1] + m.buf[9] * buf[2] + m.buf[13] * buf[3],
@@ -426,7 +419,5 @@ Treal mat4t<Treal>::at(unsigned int i, unsigned int j) const
     return buf[i*4+j];
 }
 
+}
 
-}//namespace ag
-
-#endif // MATRIX4x4_INL_INC

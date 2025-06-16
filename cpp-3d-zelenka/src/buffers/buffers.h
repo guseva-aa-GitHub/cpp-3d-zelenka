@@ -1,10 +1,8 @@
-#ifndef AG_BUFFERS_H
-#define AG_BUFFERS_H
+#pragma once
 
 #include "gl_extentions.h"
 
 namespace ag {
-
 template <typename T> class BufferVBO {
 private:
     GLuint id;
@@ -42,6 +40,5 @@ template <typename T> void BufferVBO<T>::create(GLenum target, const T *buffer,
         }
     }
 }
-
 }
-#endif // AG_BUFFERS_H
+

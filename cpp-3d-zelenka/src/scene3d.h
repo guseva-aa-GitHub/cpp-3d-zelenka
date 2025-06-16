@@ -1,5 +1,4 @@
-#ifndef _SCENE3D_H
-#define _SCENE3D_H
+#pragma once
 
 #include "shader.h"
 #include "frame_buffer.h"
@@ -68,4 +67,3 @@ private:
     void ReadCamera(TiXmlElement* camera);
 };
 
-#endif // _SCENE3D_H

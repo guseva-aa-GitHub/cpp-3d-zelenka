@@ -1,5 +1,4 @@
-#ifndef MODEL_ASSIMP_H
-#define MODEL_ASSIMP_H
+#pragma once
 
 #include "base_model.h"
 #include "buffers.h"
@@ -36,4 +35,3 @@ private:
 };
 
 } 
-#endif // MODEL_ASSIMP_H

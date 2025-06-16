@@ -1,8 +1,7 @@
 // file matrix3x3.inl
 // Inline implementation of the 3x3 matrix operators
 
-#ifndef _MATRIX3x3_INL_INC
-#define _MATRIX3x3_INL_INC
+#pragma once
 
 #include "base.h"
 #include "matrix3x3.h"
@@ -167,4 +166,3 @@ Treal mat3t<Treal>::at(unsigned int i, unsigned int j) const
 
 } //namespace ag
 
-#endif // _MATRIX3x3_INL_INC

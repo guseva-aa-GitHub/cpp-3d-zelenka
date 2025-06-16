@@ -1,5 +1,4 @@
-#ifndef _BASE_MODEL_H
-#define _BASE_MODEL_H
+#pragma once
 
 #include <string>
 #include <list>
@@ -64,6 +63,4 @@ public:
     void Write(TiXmlElement* models) const override;
 };
 
-} //end namespace ag
-
-#endif // _BASE_MODEL_H
+} 

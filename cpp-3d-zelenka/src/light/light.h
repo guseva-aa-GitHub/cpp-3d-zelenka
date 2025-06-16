@@ -1,5 +1,4 @@
-#ifndef LIGHT_H
-#define LIGHT_H
+#pragma once
 
 #include <string>
 #include <tinyxml.h>
@@ -12,7 +11,7 @@
 #include "itransform.h"
 
 namespace ag {
-
+    
 class DirectLightCamera {
 public:
     DirectLightCamera();
@@ -35,7 +34,7 @@ private:
 class DirectLight: public iTransform, public iReadWriteXML {
 public:
     DirectLight();
-    DirectLightCamera camera;
+    DirectLightCamera _camera;
 
     void BeginApply(const unsigned int program_id) const;
 	void SetPosition(float x, float y, float z);
@@ -66,4 +65,3 @@ private:
 
 } //end namespace ag
 
-#endif // LIGHT_H

@@ -1,5 +1,4 @@
-#ifndef MESH_H
-#define MESH_H
+#pragma once
 
 #include <vector>
 #include "gl_extentions.h"
@@ -49,6 +48,5 @@ private:
     void DisableVBO();
 };
 
-} //end namespace ag
+} 
 
-#endif // MESH_H

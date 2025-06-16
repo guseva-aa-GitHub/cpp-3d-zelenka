@@ -1,5 +1,4 @@
-#ifndef _BASE_CAMERA_H
-#define _BASE_CAMERA_H
+#pragma once
 
 #include <string>
 #include <tinyxml.h>
@@ -88,4 +87,3 @@ private:
 
 } //end namespace ag
 
-#endif // _ORBIT_CAMERA_H

@@ -76,32 +76,32 @@ void DirectLight::BeginApply(const unsigned int program_id) const {
 
 void DirectLight::SetPosition(float x, float y, float z) {
     _position.set(x, y, z);
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 void DirectLight::TranslateX(const float iDistance) {
     _position = ag::mat4::translation(ag::mat4(),ag::vec3(iDistance,0.0f,0.0f))*_position;
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 void DirectLight::TranslateY(const float iDistance) {
     _position = ag::mat4::translation(ag::mat4(),ag::vec3(0.0f,iDistance,0.0f))*_position;
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 void DirectLight::TranslateZ(const float iDistance) {
     _position = ag::mat4::translation(ag::mat4(),ag::vec3(0.0f,0.0f,iDistance))*_position;
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 void DirectLight::Pitch(const float iAngle) {
     _position = ag::mat4::rotationX(ag::mat4(), iAngle) * _position;
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 void DirectLight::Yaw(const float iAngle) {
     _position = ag::mat4::rotationY(ag::mat4(), iAngle) * _position;
-    camera.SetEye(_position);
+    _camera.SetEye(_position);
 }
 
 bool DirectLight::Read(TiXmlElement* light) {

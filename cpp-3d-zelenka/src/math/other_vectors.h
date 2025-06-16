@@ -1,8 +1,7 @@
 // file other_vectors.h
 // vectors structure
 
-#ifndef _OTHER_VECTOR3D_H_INC
-#define _OTHER_VECTOR3D_H_INC
+#pragma once
 
 namespace ag {
 template <typename T> class vec3t;
@@ -160,6 +159,4 @@ private:
 
 typedef colort<float> color;
 
-}//namespace ag
-
-#endif // _OTHER_VECTOR3D_H_INC
+}

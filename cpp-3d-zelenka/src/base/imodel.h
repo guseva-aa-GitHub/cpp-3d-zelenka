@@ -1,9 +1,6 @@
-#ifndef IMODEL_H
-#define IMODEL_H
+#pragma once
 
 #include "math/vector3.h"
-
-// class ShaderProgram;
 
 class iModel {
     public:
@@ -14,5 +11,3 @@ class iModel {
     virtual void SetCenterAndScope() = 0;
     virtual bool IsReady(void) const = 0;
 };
-
-#endif // IMODEL_H

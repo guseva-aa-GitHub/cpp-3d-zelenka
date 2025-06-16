@@ -4,12 +4,12 @@
 #if _WIN32 || _WIN64
     #include <windows.h>
     #include <GL/gl.h>
-    #include "GL_ext/glext.h"
+    #include <GL/glext.h>
     #define glGetProcAddress(a) wglGetProcAddress(a)
 #else
     #include <GL/gl.h>
     #include <GL/glx.h>
-    #include "GL_ext/glext.h"
+    #include <GL/glext.h>
     #define glGetProcAddress(a) glXGetProcAddress(reinterpret_cast<const unsigned char*>(a))
 #endif
 
@@ -83,10 +83,9 @@ extern PFNGLCHECKFRAMEBUFFERSTATUSPROC glCheckFramebufferStatus;
 extern PFNGLFRAMEBUFFERTEXTUREPROC     glFramebufferTexture;
 extern PFNGLFRAMEBUFFERTEXTURE2DPROC     glFramebufferTexture2D;
 
-namespace ag
-{
-	bool opengl_extension_init(void);
-	bool is_opengl_extension_load(void);
+namespace ag {
+	bool opengl_extension_init();
+	bool is_opengl_extension_load();
     void opengl_contex_info(std::ofstream& file);
 }
 #endif //GL_EXTENTIONS_H_

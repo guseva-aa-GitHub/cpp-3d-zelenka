@@ -1,8 +1,9 @@
-#ifndef _QT_SCENE3D_H
-#define _QT_SCENE3D_H
+#pragma once
 
 #include <QGLWidget>
-#include "../scene3d.h"
+#include <QtGui>
+
+#include "scene3d.h"
 
 class QtScene3D : public QGLWidget {
 public:
@@ -32,5 +33,3 @@ protected:
     // void wheelEvent(QWheelEvent* pe) override;
     void keyPressEvent(QKeyEvent* pe) override;
 };
-
-#endif // _QT_SCENE3D_H

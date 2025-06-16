@@ -1,8 +1,8 @@
-#ifndef FRAMEBUFFERIMAGE_H
-#define FRAMEBUFFERIMAGE_H
+#pragma once
 
 #include "gl_extentions.h"
 
+namespace ag {
 class FrameBufferImage {
 private:
     GLuint _fbo;
@@ -27,5 +27,5 @@ public:
     // void save_8bit(const char* file_name) { }
     void save_16bit(const char* file_name);
 };
+}
 
-#endif // FRAMEBUFFERIMAGE_H

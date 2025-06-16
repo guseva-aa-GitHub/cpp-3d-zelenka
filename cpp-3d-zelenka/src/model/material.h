@@ -1,5 +1,4 @@
-#ifndef MATERIAL_H
-#define MATERIAL_H
+#pragma once
 
 #include "gl_extentions.h"
 #include "math/other_vectors.h"
@@ -50,6 +49,6 @@ private:
     bool _two_sided;
 };
 
-} //end namespace ag
+} 
 
-#endif // MATERIAL_H
+

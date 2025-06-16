@@ -1,5 +1,4 @@
-#ifndef OBJECT_TYPE_H_INCLUDED
-#define OBJECT_TYPE_H_INCLUDED
+#pragma once
 
 enum ObjectType {
     AG_TYPE_BASE_MODEL = 0,
@@ -12,6 +11,5 @@ enum ObjectType {
     AG_TYPE_GROUP_MODEL
 };
 
-extern const char* AG_OBJECT_TYPE_NAME[];
+extern const char* AG_OBJECT_TYPE_NAME[8];
 
-#endif // OBJECT_TYPE_H_INCLUDED

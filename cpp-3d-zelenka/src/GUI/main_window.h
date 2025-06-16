@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QtGui>
@@ -10,6 +9,15 @@
 #include <QDoubleSpinBox>
 #include <QPushButton>
 #include <QVector3D>
+
+#include <QDockWidget>
+#include <QGridLayout>
+#include <QLabel>
+#include <QFileDialog>
+#include <QMessageBox>
+
+#include <QAction>
+#include <QMenuBar>
 
 #include "Qt_scene3d.h"
 
@@ -62,7 +70,3 @@ private slots:
     // void calckButtonClicked();
     void models_CBChange(int item);
 };
-
-
-
-#endif // MAINWINDOW_H

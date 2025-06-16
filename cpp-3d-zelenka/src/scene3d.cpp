@@ -134,13 +134,13 @@ void Scene3D::Resize(const int nWidth, const int nHeight) {
     glViewport(0, 0, _width, _height);
 
     _pCamera->setAspectRatio(_width, _height);
-    _light.camera.Viewport(_width, _height);
+    _light._camera.Viewport(_width, _height);
 }
 
 void Scene3D::Paint() {
     _program_d.BeginApply();
     _frame_buffer.begin_apply( _program_d.Id() );
-    _light.camera.LocationViewProject( _program_d.Id() );
+    _light._camera.LocationViewProject( _program_d.Id() );
 
     for(const auto& model: _models) 
         model->Draw(_program_d.Id());
@@ -156,7 +156,7 @@ void Scene3D::Paint() {
     _frame_buffer.location( _program.Id() );
     _pCamera->begin_apply( _program.Id() );
     _light.BeginApply( _program.Id() );
-    _light.camera.LocationBiasViewProject( _program.Id() );
+    _light._camera.LocationBiasViewProject( _program.Id() );
 
     for(const auto& model: _models) 
         model->Draw(_program.Id());

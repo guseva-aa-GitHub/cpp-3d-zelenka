@@ -1,10 +1,8 @@
-#ifndef FRAMEBUFFER_H
-#define FRAMEBUFFER_H
+#pragma once
 
 #include "gl_extentions.h"
 
 namespace ag {
-
 class FrameBuffer {
 public:
     FrameBuffer(): depthFBO(0), depthTexture(0), width(0), height(0) {}
@@ -21,7 +19,4 @@ private:
     GLsizei width;
     GLsizei height;
 };
-
 } //end namespace ag
-
-#endif // FRAMEBUFFER_H

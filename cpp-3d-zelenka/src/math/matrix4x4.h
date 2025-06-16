@@ -1,8 +1,7 @@
 // file matrix4x4.h
 // 4x4 matrix structure, including operators when compiling in C++
 
-#ifndef _MATRIX4X4_H_INC
-#define _MATRIX4X4_H_INC
+#pragma once
 
 namespace ag
 {
@@ -127,9 +126,6 @@ private:
 };
 
 typedef mat4t<float> mat4;
-
-}//namespace ag
+}
 
 #include "matrix4x4.inl"
-
-#endif // MATRIX4X4_H_INC

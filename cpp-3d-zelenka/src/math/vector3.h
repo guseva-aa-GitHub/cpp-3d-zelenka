@@ -1,11 +1,9 @@
 // file vector3.h
 // 3D vector structure, including operators when compiling in C++
 
-#ifndef _VECTOR3D_H_INC
-#define _VECTOR3D_H_INC
+#pragma once
 
-namespace ag
-{
+namespace ag {
 
 template<typename Treal> class mat3t;
 template<typename Treal> class mat4t;
@@ -80,11 +78,8 @@ private:
 	Treal buf[3];
 };
 
-
 typedef vec3t<float> vec3;
 
-}//namespace ag
+}
 
 #include "vector3.inl"
-
-#endif // _VECTOR3D_H_INC

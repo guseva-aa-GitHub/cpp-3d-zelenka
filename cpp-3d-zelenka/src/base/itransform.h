@@ -1,5 +1,4 @@
-#ifndef _I_TRANSFORM_H
-#define _I_TRANSFORM_H
+#pragma once
 
 #include "other_vectors.h"
 
@@ -78,5 +77,3 @@ public:
 };
 
 } //end namespace ag
-
-#endif // _I_TRANSFORM_H

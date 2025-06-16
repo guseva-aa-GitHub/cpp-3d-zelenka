@@ -1,13 +1,5 @@
 #include "main_window.h"
 
-#include <QDockWidget>
-#include <QGridLayout>
-#include <QLabel>
-#include <QFileDialog>
-#include <QMessageBox>
-
-#include <QAction>
-#include <QMenuBar>
 #include <iostream>
 
 MainWindow::MainWindow() {

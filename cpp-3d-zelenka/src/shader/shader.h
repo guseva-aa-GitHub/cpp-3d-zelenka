@@ -1,8 +1,8 @@
-#ifndef SHADER_H
-#define SHADER_H
+#pragma once
 
 #include <fstream>
 #include <string>
+
 #include "gl_extentions.h"
 
 // типы шейдеров
@@ -33,8 +33,7 @@ bool link_shader_program(GLuint program, std::ofstream& log_file);
 //проверка на корректность шейдерной программы
 bool validate_shader_program(GLuint program, std::ofstream& log_file);
 
-class ShaderProgram
-{
+class ShaderProgram {
 private:
     GLuint program;
 
@@ -51,5 +50,3 @@ public:
 
     void ShaderCompute();
 };
-
-#endif /* SHADER_H */

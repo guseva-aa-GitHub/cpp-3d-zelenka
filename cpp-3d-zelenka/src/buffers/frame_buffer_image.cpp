@@ -1,12 +1,11 @@
 #include "frame_buffer_image.h"
 
-//#include <FreeImage.h>
-
 #include <memory>
 #include <fstream>
 #include <vector>
 
 extern std::ofstream log_file;
+using namespace ag;
 
 FrameBufferImage::~FrameBufferImage() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);

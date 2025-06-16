@@ -1,5 +1,4 @@
-#ifndef MODELSIMPLE_H
-#define MODELSIMPLE_H
+#pragma once
 
 #include "base_model.h"
 #include "buffers.h"
@@ -29,4 +28,3 @@ private:
 
 } //namespace ag
 
-#endif // MODELSIMPLE_H

@@ -1,5 +1,4 @@
-#ifndef _CAMERA_H
-#define _CAMERA_H
+#pragma once
 #include "base_camera.h"
 
 namespace ag {
@@ -19,5 +18,3 @@ public:
 };
 
 } //end namespace ag
-
-#endif // _ORBIT_CAMERA_H

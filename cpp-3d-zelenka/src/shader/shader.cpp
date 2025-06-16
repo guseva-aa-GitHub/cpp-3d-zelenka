@@ -21,26 +21,22 @@ static const char fragmentShaderDefines[] =
 
 
 //проверка статуса шейдерной программы
-GLint shader_program_status(GLuint program, GLenum param, std::ofstream& log_file)
-{
+GLint shader_program_status(GLuint program, GLenum param, std::ofstream& log_file) {
 	GLint status, length, buffer_size=0;
-	char *buffer=nullptr;
+	char *buffer = nullptr;
 
 	glGetProgramiv(program, param, &status);
 
-	if(status != GL_TRUE)
-	{
+	if (status != GL_TRUE) {
 	    log_file<<"Shader program\n";
-	    try
-	    {
+	    try {
             glGetProgramiv(program, GL_INFO_LOG_LENGTH, &buffer_size);
             buffer = new char[buffer_size];
             glGetProgramInfoLog(program, buffer_size, &length, buffer);
             log_file<< buffer <<std::endl;
             delete[] buffer;
 	    }
-	    catch(std::exception &e)
-	    {
+	    catch(std::exception &e) {
 	        log_file<<", exception: " << e.what() <<std::endl;
 	    }
 	}
@@ -48,21 +44,17 @@ GLint shader_program_status(GLuint program, GLenum param, std::ofstream& log_fil
 }
 
 //проверка статуса шейдера
-GLint shader_status(GLuint shader, const char* shader_name, std::ofstream& log_file)
-{
+GLint shader_status(GLuint shader, const char* shader_name, std::ofstream& log_file) {
 	GLint status, length, buffer_size=0;
 	char *buffer=nullptr;
 
 	glGetShaderiv(shader,  GL_COMPILE_STATUS, &status);
 
-	if(status != GL_TRUE)
-	{
+	if (status != GL_TRUE) {
 	    log_file<<"Shader: "<< shader_name << std::endl;
-	    try
-	    {
+	    try {
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &buffer_size);
-            if(buffer_size)
-            {
+            if (buffer_size) {
                 buffer = new char[buffer_size];
                 glGetShaderInfoLog(shader, buffer_size, &length, buffer);
                 log_file<< buffer <<std::endl;
@@ -79,21 +71,18 @@ GLint shader_status(GLuint shader, const char* shader_name, std::ofstream& log_f
 }
 
 //линковка шейдерной программы и проверка статуса линковки
-bool link_shader_program(GLuint program, std::ofstream& log_file)
-{
+bool link_shader_program(GLuint program, std::ofstream& log_file) {
 	glLinkProgram(program);
 	return (shader_program_status(program, GL_LINK_STATUS, log_file) == GL_TRUE);
 }
 //проверка на корректность шейдерной программы
-bool validate_shader_program(GLuint program, std::ofstream& log_file)
-{
+bool validate_shader_program(GLuint program, std::ofstream& log_file) {
 	glValidateProgram(program);
 	return (shader_program_status(program, GL_VALIDATE_STATUS, log_file) == GL_TRUE);
 }
 
 //делает указанную шейдерную программу неактивной и удаляет ее
-void delete_shader_program(GLuint program)
-{
+void delete_shader_program(GLuint program) {
 	glUseProgram(0);
 	glDeleteProgram(program);
 }

@@ -1,8 +1,7 @@
 // file matrix3x3.h
 // Definition of a 3x3 matrix, including operators when compiling in C++
 
-#ifndef _MATRIX3x3_H_INC
-#define _MATRIX3x3_H_INC
+#pragma once
 
 namespace ag
 {
@@ -69,5 +68,3 @@ typedef mat3t<float> mat3;
 }//namespace ag
 
 #include "matrix3x3.inl"
-
-#endif // _MATRIX3x3_H_INC
