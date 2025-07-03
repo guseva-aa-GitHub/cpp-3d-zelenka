@@ -4,9 +4,9 @@
 #include <QtGui>
 #include <QDialog>
 
+#include <QRadioButton>
 #include <QComboBox>
 #include <QLineEdit>
-#include <QDoubleSpinBox>
 #include <QPushButton>
 #include <QVector3D>
 
@@ -41,13 +41,15 @@ private:
     QAction* _aboutHelpAct; 
 
     struct Pos_LE {
-        Pos_LE() 
-        : xLE(new QLineEdit("0.0")), yLE(new QLineEdit("0.0")), zLE(new QLineEdit("0.0")) { }
+        Pos_LE();
         QLineEdit *xLE;
         QLineEdit *yLE;
         QLineEdit *zLE;
-    };
+        void Set(const ag::vec3& pos);
+    };    
 
+    QRadioButton* _selectCamera_RB;
+    QRadioButton* _selectModels_RB;
     Pos_LE _pos_camera;
     Pos_LE _pos_model;
     QComboBox* _models_CB;
@@ -59,6 +61,7 @@ private:
     void ControlCenterActions();
 
     void UpdateInfo();
+    void UpdateInfoKey();
 
 private slots:
     void openScene();
@@ -66,7 +69,12 @@ private slots:
     void saveScene();
     void exitFile();
     void aboutHelp() { QDialog d; d.exec(); }
-
-    // void calckButtonClicked();
+    
     void models_CBChange(int item);
+    void camera_RBClicked();
+    void model_RBClicked();
+
+protected:
+void keyPressEvent(QKeyEvent* pe) override;
+
 };

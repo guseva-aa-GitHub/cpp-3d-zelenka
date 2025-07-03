@@ -165,21 +165,34 @@ void Scene3D::Paint() {
 }
 
 void Scene3D::SelectCamera() {
+    if (_pTransform == &_camera) return;
     _camera.setParam(*_pCamera);
     _pCamera = & _camera;
     _pTransform = & _camera;
 }
 void Scene3D::SelectOrbitCamera() {
+    if (_pTransform == &_orb_camera) return;
     _orb_camera.setParam(*_pCamera);
     _pCamera = & _orb_camera;
     _pTransform = & _orb_camera;
 }
 void Scene3D::SelectLight() {
-    _pTransform = & _light;
+    if (_pTransform == &_light) return;
+    _pTransform = &_light;
 }
-void Scene3D::SelectModel() {
-    if (!_models.empty())
-    _pTransform = _models.begin()->get();
+
+void Scene3D::SelectModel(const int id) {
+    if (_models.empty() || id >= _models.size()) return;
+
+    std::cout<<"Scene3D::SelectModel() id = "<<id<<std::endl;
+
+    // std::cout<<"_pTransform = "<<_pTransform;
+    auto ptr = _models.begin() +id;
+    _pTransform = (*ptr).get();
+    
+    // _pTransform = _models.begin()->get();
+    
+    // std::cout<<"     = "<<_pTransform<<std::endl;
 }
 
 void Scene3D::SelectedScale(const float delta) {
@@ -204,12 +217,16 @@ void Scene3D::SelectedTranslateZ(const float delta) {
     _pTransform->TranslateZ(delta);
 }
 
-const std::vector<std::unique_ptr<ag::BaseModel>>* Scene3D::GetNameModels() const {
+const std::vector<std::unique_ptr<ag::BaseModel>>* Scene3D::GetModels() const {
     return &_models;
 }
 
 const ag::vec3 Scene3D::GetPosCamera() const {
     return _pCamera != nullptr ? _pCamera->getEye() : ag::vec3(0);
+}
+
+bool Scene3D::IsTranformCamera() const noexcept {
+    return _pCamera == _pTransform;
 }
 
 void Scene3D::ReadCamera(TiXmlElement* xml_camera) {
@@ -251,17 +268,4 @@ void Scene3D::Save(const std::string& file) const {
     if (file.empty())  doc.SaveFile(_file.c_str());
     else              doc.SaveFile(file.c_str());
 
-
-    // log_file<<"Scene3D::save"<<std::endl;
-    // glClearColor(0.81222f, 0.0015f, 0.000214f, 1.0f);
-
-    // FrameBufferImage buffer;
-    // buffer.init(100, 100);
-
-    // buffer.begin_apply();
-
-    //     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    // buffer.save_16bit(" ");
-    // buffer.end_apply();
 }

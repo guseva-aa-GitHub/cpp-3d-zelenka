@@ -28,7 +28,7 @@ public:
 
     void SelectOrbitCamera();
     void SelectCamera();
-    void SelectModel();
+    void SelectModel(const int id= 0);
     void SelectLight();
 
     void SelectedScale(const float delta);
@@ -39,8 +39,10 @@ public:
     void SelectedTranslateY(const float delta);
     void SelectedTranslateZ(const float delta);
 
-    const std::vector<std::unique_ptr<ag::BaseModel>>* GetNameModels() const;
+    const std::vector<std::unique_ptr<ag::BaseModel>>* GetModels() const;
     const ag::vec3 GetPosCamera() const;
+
+    bool IsTranformCamera() const noexcept;
 
 private:
     std::string _file;

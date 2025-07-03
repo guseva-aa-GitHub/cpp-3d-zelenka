@@ -27,12 +27,19 @@
 
 ##### Windows  
 Сборка проекта СMake, с компилятором GCC.  
-Все пакеты библиотек были загружены pacman с MSYS2 (C:/Dev/MSYS2/mingw64). 
-Скорректируйте в CMakeLists.txt переменные CMAKE_INCLUDE_PATH и CMAKE_LIBRARY_PATH под свои условия. 
+Дополнительные пакеты библиотек были загружены pacman через MSYS2:  
+pacman -S mingw-w64-x86_64-qt5 mingw-w64-x86_64-assimp  
+pacman -S mingw-w64-x86_64-devil mingw-w64-x86_64-tinyxml  
+Скорректируйте в CMakeLists.txt переменные CMAKE_INCLUDE_PATH и CMAKE_LIBRARY_PATH.  
     
 ##### Linex (Ubuntu)
 Сборка проекта СMake, с компилятором GCC.  
-Установите необходимые пакеты, скорректируйте в CMakeLists.txt переменные CMAKE_INCLUDE_PATH и CMAKE_LIBRARY_PATH. 
+Дополнительные пакеты библиотек:  
+sudo apt install mesa-utils libgl1-mesa-dev libglu1-mesa-dev  
+sudo apt install qt5-default qtbase5-dev qtchooser qt5-qmake  
+sudo apt install libtinyxml-dev libdevil-dev  
+sudo apt install libassimp-dev libassimp5  
+Скорректируйте в CMakeLists.txt переменные CMAKE_INCLUDE_PATH и CMAKE_LIBRARY_PATH.  
 
 
 

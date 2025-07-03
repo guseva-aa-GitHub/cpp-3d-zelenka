@@ -1,7 +1,7 @@
 #include "Qt_scene3d.h"
 
 QtScene3D::QtScene3D(QWidget *parent) 
-: QGLWidget(parent) { }
+: QGLWidget(parent){ }
 
 QtScene3D::~QtScene3D() { }
 
@@ -24,7 +24,7 @@ void QtScene3D::paintGL() {
 void QtScene3D::keyPressEvent(QKeyEvent *pe) {
     switch (pe->key())
     {
-        case Qt::Key_O:
+    case Qt::Key_O:
         _scene.SelectOrbitCamera();
         break;
     case Qt::Key_P:
